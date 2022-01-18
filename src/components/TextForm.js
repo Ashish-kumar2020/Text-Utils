@@ -4,6 +4,11 @@ export default function TextForm(props) {
     const handleUpClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText);
+        if(text.length>0){
+             props.showAlert("Converted to UpperCase","success");
+        } else{
+            props.showAlert("Nothing to make in UpperCase ","danger");
+        }
     }
     const handleOnChange = (e)=>{
         setText(e.target.value);
@@ -12,28 +17,51 @@ export default function TextForm(props) {
     const handleDownClick = ()=>{
         let downText = text.toLowerCase();
         setText(downText);
+        if(text.length>0){
+            props.showAlert("Converted to LowerCase","success");
+        } else{
+            props.showAlert("Nothing to make in LowerCase ","danger");
+        }
     }
 
     const handleToClearText = ()=>{
         let newTxt = "";
         setText(newTxt);
+        if(text.length>0){
+            props.showAlert("Text cleared","success");
+        } else{
+            props.showAlert("Nothing to clear","danger");
+        }
     }
 
 
     const handleToReverseText = () =>{
         let reverseText = text.split("").reverse().join("");
         setText(reverseText);
+        if(text.length>0){
+            props.showAlert("Text reversed","success");
+        } else{
+            props.showAlert("Nothing to reverse","danger");
+        }
     }
 
     const handleExtraSpaces = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        if(text.length>0){
+            props.showAlert("extra spaces removed","success");
+        } else{
+            props.showAlert("Nothing to remove","danger");
+        }
+
     }
 
     const handleCopy = () => {
         var text = document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Copied to Clipboard","success");
+        
     }
 
     const [text,setText] = useState("");
