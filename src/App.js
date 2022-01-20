@@ -18,6 +18,17 @@ function App() {
         setAlert(null);
       },2000);
   }
+  // const switchToGreenBG = ()=>{
+  //   if(mode === 'light'){
+  //     setMode('#00FF00');
+  //     document.body.style.backgroundColor = '#00FF00';
+  //     showAlert('Green Mode Enabled','success');
+  //   } else{
+  //     setMode('light');
+  //     document.body.style.backgroundColor = 'white';
+  //     showAlert("Light mode has been enabled","success");
+  //   }
+  // }
   const toggleMode = ()=>{
     if(mode === 'light'){
       setMode('dark')

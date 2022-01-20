@@ -64,6 +64,9 @@ export default function TextForm(props) {
         
     }
 
+
+    
+
     const [text,setText] = useState("");
     // text = "new Text"  wrong way to change the state
     // setText("new Text") correct way to change the state
